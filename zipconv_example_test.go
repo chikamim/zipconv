@@ -7,7 +7,7 @@ import (
 )
 
 func ExampleAddressToZip() {
-	z, _ := zipconv.New("data.gob")
+	z, _ := zipconv.New("zip.gob")
 	code := z.AddressToZip("北海道札幌市中央区大通東")
 
 	fmt.Println(code)
@@ -16,7 +16,7 @@ func ExampleAddressToZip() {
 }
 
 func ExampleZipToAddress() {
-	z, _ := zipconv.New("data.gob")
+	z, _ := zipconv.New("zip.gob")
 	code := z.ZipToAddress("0600041")
 
 	fmt.Println(code)

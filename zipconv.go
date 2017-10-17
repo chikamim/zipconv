@@ -11,23 +11,21 @@ type Converter struct {
 	Zipcodes []Zip
 }
 
-func New(path string) (converter *Converter, err error) {
-	c := Converter{}
-	codes := []Zip{}
-
+func New(path string) (converter Converter, err error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return &c, err
+		return converter, err
 	}
 	defer f.Close()
+
 	buf := bufio.NewReader(f)
+	codes := []Zip{}
 	err = gob.NewDecoder(buf).Decode(&codes)
 	if err != nil {
-		return &c, err
+		return converter, err
 	}
-
-	c.Zipcodes = codes
-	return &c, nil
+	converter.Zipcodes = codes
+	return converter, nil
 }
 
 func (c *Converter) AddressToZip(address string) string {

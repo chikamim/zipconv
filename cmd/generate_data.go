@@ -12,8 +12,8 @@ import (
 )
 
 func main() {
-	csvPath := os.Args[1]
-	outPath := "data.gob"
+	csvPath := "KEN_ALL.utf8.CSV"
+	outPath := "zip.gob"
 	codes, err := parseCSV(csvPath)
 	if err != nil {
 		panic(err)
@@ -48,7 +48,7 @@ func parseCSV(path string) (codes []zipconv.Zip, err error) {
 		z.ZipCode = r[2]
 		z.Prefecture = r[6]
 		z.City = r[7]
-		//if r[8] != "以下に掲載がない場合" {
+		// TODO: r[8] == "以下に掲載がない場合"
 		z.Town = r[8]
 		codes = append(codes, z)
 	}
