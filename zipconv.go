@@ -29,18 +29,18 @@ func New(path string) (converter Converter, err error) {
 }
 
 func (c *Converter) AddressToZip(address string) string {
-	for _, code := range c.Zipcodes {
-		if strings.HasPrefix(code.Address(), address) {
-			return code.ZipCode
+	for _, zip := range c.Zipcodes {
+		if strings.HasPrefix(zip.Address(), address) {
+			return zip.Code
 		}
 	}
 	return ""
 }
 
-func (c *Converter) ZipToAddress(zip string) string {
-	for _, code := range c.Zipcodes {
-		if code.ZipCode == zip {
-			return code.Address()
+func (c *Converter) ZipToAddress(code string) string {
+	for _, zip := range c.Zipcodes {
+		if zip.Code == code {
+			return zip.Address()
 		}
 	}
 	return ""

@@ -48,7 +48,7 @@ func parseCSV(path string) (codes []zipconv.Zip, err error) {
 		}
 		// 01101,"064  ","0640941","ﾎｯｶｲﾄﾞｳ","ｻｯﾎﾟﾛｼﾁｭｳｵｳｸ","ｱｻﾋｶﾞｵｶ","北海道","札幌市中央区","旭ケ丘",0,0,1,0,0,0
 		z := zipconv.Zip{}
-		z.ZipCode = r[2]
+		z.Code = r[2]
 		z.Prefecture = r[6]
 		z.City = r[7]
 		z.Town = rep.ReplaceAllString(r[8], "")

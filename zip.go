@@ -1,7 +1,7 @@
 package zipconv
 
 type Zip struct {
-	ZipCode    string
+	Code       string
 	Prefecture string
 	City       string
 	Town       string
