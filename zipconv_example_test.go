@@ -8,18 +8,18 @@ import (
 
 func ExampleAddressToZip() {
 	z, _ := zipconv.New("zip.gob")
-	code := z.AddressToZip("北海道札幌市中央区大通東")
-
-	fmt.Println(code)
+	fmt.Println(z.AddressToZip("北海道札幌市中央区大通東"))
 	// Output:
 	// 0600041
 }
 
 func ExampleZipToAddress() {
 	z, _ := zipconv.New("zip.gob")
-	code := z.ZipToAddress("0600041")
-
-	fmt.Println(code)
+	fmt.Println(z.ZipToAddress("1000014"))
+	fmt.Println(z.ZipToAddress("6511102"))
+	fmt.Println(z.ZipToAddress("3300081"))
 	// Output:
-	// 北海道札幌市中央区大通東
+	// 東京都千代田区永田町
+	// 兵庫県神戸市北区山田町下谷上
+	// 埼玉県さいたま市中央区新都心
 }
